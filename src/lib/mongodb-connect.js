@@ -26,6 +26,8 @@ const openRealConnection = () => new Promise((resolve, reject) =>
  */
 const openFake = () => new Promise(async (resolve, reject) => {
   const mockgoose = new Mockgoose(mongoose);
+  mockgoose.helper.setDbVersion('3.2.1');
+
   await mockgoose.prepareStorage();
   mongoose.connect(URI, options, (err, res) => {
     if (err) return reject(err);
