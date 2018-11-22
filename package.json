@@ -1,0 +1,33 @@
+{
+  "name": "mockgoose-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server",
+    "dev": "nodemon --watch src --exec 'npm run build && npm start'",
+    "test": "NODE_ENV=unit-test _mocha --require @babel/register ./src/**/*.spec.js",
+    "test-watch": "NODE_ENV=unit-test _mocha --require @babel/register ./src/**/*.spec.js -w",
+    "coverage": "nyc --reporter=lcov npm test",
+    "build": "babel src --out-dir dist",
+    "postinstall": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/register": "^7.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "mockgoose": "^7.3.5",
+    "mongoose": "^5.3.13",
+    "sinon": "^7.1.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "express": "^4.16.4",
+    "isomorphic-fetch": "^2.2.1"
+  }
+}
